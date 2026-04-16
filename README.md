@@ -13,31 +13,31 @@ A production-ready ChatGPT-like application with **conversational memory**, **RA
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                        Frontend                              │
+│                        Frontend                             │
 │    React 19 + Vite + Tailwind CSS v4                        │
-│    ┌───────────┐  ┌────────────┐  ┌───────────────┐        │
+│    ┌───────────┐  ┌────────────┐  ┌───────────────┐         │
 │    │  Sidebar   │  │   Chat     │  │  File Upload  │        │
 │    │  (Threads) │  │  Window    │  │  (RAG Docs)   │        │
-│    └───────────┘  └────────────┘  └───────────────┘        │
+│    └───────────┘  └────────────┘  └───────────────┘         │
 └──────────────┬───────────┬──────────────┬───────────────────┘
                │  REST     │  WebSocket   │  REST
                ▼           ▼              ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                     FastAPI Backend                           │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌────────────┐  │
-│  │ Threads  │  │   Chat   │  │ Messages │  │ Documents  │  │
-│  │  CRUD    │  │  Stream  │  │  History │  │   Upload   │  │
-│  └──────────┘  └────┬─────┘  └──────────┘  └─────┬──────┘  │
-│                     │                              │         │
+│                     FastAPI Backend                         │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌────────────┐   │
+│  │ Threads  │  │   Chat   │  │ Messages │  │ Documents  │   │ 
+│  │  CRUD    │  │  Stream  │  │  History │  │   Upload   │   │
+│  └──────────┘  └────┬─────┘  └──────────┘  └─────┬──────┘   │
+│                     │                              │        │
 │  ┌─────────────────────────────────────────────────────────┐│
-│  │              LLM Orchestration Service                   ││
+│  │              LLM Orchestration Service                  ││
 │  │  Memory → RAG Retrieval → Web Search → Prompt → Stream  ││
 │  └────────────┬─────────────┬────────────┬─────────────────┘│
-│               │             │            │                   │
-│        ┌──────▼──┐   ┌──────▼──┐  ┌──────▼──┐              │
-│        │ SQLite  │   │ChromaDB │  │ Tavily  │              │
-│        │  (DB)   │   │ (Vecs)  │  │  (Web)  │              │
-│        └─────────┘   └─────────┘  └─────────┘              │
+│               │             │            │                  │
+│        ┌──────▼──┐   ┌──────▼──┐  ┌──────▼──┐               │
+│        │ SQLite  │   │ChromaDB │  │ Tavily  │               │
+│        │  (DB)   │   │ (Vecs)  │  │  (Web)  │               │
+│        └─────────┘   └─────────┘  └─────────┘               │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -83,23 +83,23 @@ A production-ready ChatGPT-like application with **conversational memory**, **RA
                          └──────────┬───────────┘
                                     │
                          ┌──────────▼───────────┐
-                         │   Chunk (1000/200)    │
-                         │ RecursiveCharSplitter │
+                         │   Chunk (1000/200)   │
+                         │ RecursiveCharSplitter│
                          └──────────┬───────────┘
                                     │
                          ┌──────────▼───────────┐
-                         │   Embed (OpenAI)      │
-                         │ text-embedding-3-small│
+                         │   Embed (OpenAI)     │
+                         │ text-embedding-3-smll│
                          └──────────┬───────────┘
                                     │
                          ┌──────────▼───────────┐
-                         │  Store in ChromaDB    │
-                         │  (cosine similarity)  │
+                         │  Store in ChromaDB   │
+                         │  (cosine similarity) │
                          └──────────────────────┘
 
    ┌────────────┐    ┌──────────────┐    ┌──────────────────┐
-   │ User Query │───▶│ Embed Query  │───▶│ ChromaDB Top-K   │
-   └────────────┘    └──────────────┘    │ Similarity Search │
+   │ User Query │───▶│ Embed Query  │───▶│ ChromaDB Top-K  │
+   └────────────┘    └──────────────┘    │ Similarity Search│
                                           └────────┬─────────┘
                                                    │
           ┌──────────────────────────────────────────┘
@@ -150,12 +150,7 @@ Navigate to `http://localhost:5173`
 
 ---
 
-## 🔐 Environment Variables
 
-| Variable          | Required | Description                    |
-|-------------------|----------|--------------------------------|
-| `GROQ_API_KEY`    | ✅       | Groq Cloud API key             |
-| `TAVILY_API_KEY`  | ❌       | Tavily key for web search      |
 
 ---
 
