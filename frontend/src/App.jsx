@@ -16,6 +16,7 @@ export default function App() {
   const {
     documents,
     loading: docsLoading,
+    refreshDocuments,
     removeDocument,
   } = useDocuments();
 
@@ -98,6 +99,7 @@ export default function App() {
           status={status}
           onSendMessage={sendMessage}
           activeThreadId={activeThreadId}
+          onUploadSuccess={refreshDocuments}
         />
       </motion.div>
     </div>

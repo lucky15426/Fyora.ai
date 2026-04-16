@@ -5,7 +5,7 @@ import { cn } from '../lib/utils';
 
 const ACCEPTED = '.pdf,.txt,.md,.docx';
 
-export default function FileUpload() {
+export default function FileUpload({ onUploadSuccess }) {
   const [dragging, setDragging] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [result, setResult] = useState(null); // { success: bool, message: string }
@@ -18,6 +18,7 @@ export default function FileUpload() {
     try {
       const res = await uploadDocument(file);
       setResult({ success: true, message: res.message });
+      if (onUploadSuccess) onUploadSuccess(res.document);
     } catch (err) {
       setResult({ success: false, message: err.message });
     } finally {

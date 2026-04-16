@@ -13,6 +13,7 @@ export default function ChatWindow({
   status,
   onSendMessage,
   activeThreadId,
+  onUploadSuccess,
 }) {
   const [input, setInput] = useState('');
   const [webSearch, setWebSearch] = useState(false);
@@ -182,7 +183,7 @@ export default function ChatWindow({
                   enabled={webSearch}
                   onToggle={() => setWebSearch(!webSearch)}
                 />
-                <FileUpload />
+                <FileUpload onUploadSuccess={onUploadSuccess} />
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.05]">
                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
