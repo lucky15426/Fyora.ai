@@ -1,0 +1,38 @@
+# Fyora.ai Full Dependency List
+# Web Framework
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+pydantic-settings
+python-dotenv
+
+# Database & Vectors
+aiosqlite
+SQLAlchemy
+chromadb
+
+# LLM Providers
+langchain-groq
+langchain-google-genai
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters
+
+# Embeddings (Local & Cloud)
+sentence-transformers
+langchain-huggingface
+
+# Document Processing
+pypdf
+python-docx
+tiktoken
+
+# Search & Utilities
+tavily-python
+requests
+aiohttp
+websockets
+numexpr
+numpy
